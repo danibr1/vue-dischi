@@ -8,6 +8,7 @@
                 :key="index"
                 class="col-6 col-md-4 col-lg-3"
             >
+            
             <Album />
             
             </div>
@@ -19,10 +20,11 @@
 import axios from 'axios';
 import Album from '@/components/Album';
 
+
 export default {
     name: 'AlbumsList',
     component: {
-        Album
+        Album,
     },
     data () {
         return {
