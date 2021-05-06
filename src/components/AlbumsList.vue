@@ -1,21 +1,28 @@
 <template>
     <section class="album-list">
-
+        <div v-if="!loading" class="row">
+            
+            <!-- ALBUMS -->
+            <div
+                v-for="(album, index) in albumList"
+                :key="index"
+                class="col-6 col-md-4 col-lg-3"
+            >
+            <Album />
+            
+            </div>
+        </div>
     </section>
 </template>
 
 <script>
 import axios from 'axios';
-// import axios from 'axios';
-// import Single Album component - import Loader from '@/components/Album';
-// import loader - import Loader from '@/components/Loader';
-
+import Album from '@/components/Album';
 
 export default {
     name: 'AlbumsList',
     component: {
-        // Single Album 
-        // Loader
+        Album
     },
     data () {
         return {
@@ -52,4 +59,9 @@ export default {
     @import '../styles/vars';
     @import '../styles/general';
 
+    .album-list {
+        background: $bg-color;
+        color: $second-text-color;
+        padding: 120px 75px 30px
+    }
 </style>
