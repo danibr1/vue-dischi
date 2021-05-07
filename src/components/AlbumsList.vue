@@ -3,9 +3,9 @@
         <div v-if ="!loading" class="row">
             <!-- ALBUMS -->
             <Album
+                class="col-12"
                 v-for="(album, index) in albumList"
                 :key="index"
-                class="col-12"
                 :info='album'
             />
         </div>
