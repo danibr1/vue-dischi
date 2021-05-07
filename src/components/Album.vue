@@ -1,10 +1,9 @@
 <template>
-    <div class="album text-center">
-        
+    <div class="album text-center" v-if="info">
         <div class="poster">
-            <img class="img-fluid" :src="info.poster" :alt="info.title">
+            <img class="img-fluid" :src="info.poster" :alt="info.title" />
         </div>
-        
+
         <div class="details">
             <h3 class="fw-bold">{{ info.title }}</h3>
             <div>{{ info.author }}</div>
@@ -17,10 +16,12 @@
 <script>
 export default {
     name: 'Album',
-    props: ["info"],
+    props: ['info'],
 };
 </script>
 
 <style scoped lang="scss">
-    
+@import '../styles/vars';
+
 </style>
+ 

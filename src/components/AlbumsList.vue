@@ -21,7 +21,7 @@ import Album from '@/components/Album';
 
 export default {
     name: 'AlbumsList',
-    component: {
+    components: {
         Album,
     },
     data() {
@@ -42,8 +42,8 @@ export default {
             axios
                 .get(this.apiUrl)
                 .then((res) => {
-                    console.log(res.data);
-                    this.albumList = res.data;
+                    console.log(res.data.response);
+                    this.albumList = res.data.response;
                     this.loading = false;
                 })
                 .catch((err) => {
