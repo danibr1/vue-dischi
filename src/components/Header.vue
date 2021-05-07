@@ -5,14 +5,14 @@
             <img class="img-fluid" :src="logo.image" :alt="logo.text" />
         </a>
         
-    
+
     </section>
 </template>
 
 
 <script>
 export default {
-    name: '',
+    name: 'Header',
     data() {
         return {
             logo: 

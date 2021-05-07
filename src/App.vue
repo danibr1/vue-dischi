@@ -4,18 +4,26 @@
 
         <AlbumsList />
 
+        <Album />
+
     </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
 import AlbumsList from '@/components/AlbumsList';
+import Album from '@/components/Album';
+
+
+
 
 export default {
     name: 'App',
     components: {
         Header,
         AlbumsList,
+        Album,
+
     },
 };
 </script>

@@ -1,18 +1,16 @@
 <template>
     <section class="album-list">
-        <div v-if="!loading" class="row">
-            
+        <div v-if ="!loading" class="row">
             <!-- ALBUMS -->
-            <div
+            <Album
                 v-for="(album, index) in albumList"
                 :key="index"
-                class="col-6 col-md-4 col-lg-3"
-            >
-            
-            <Album />
-            
-            </div>
+                class="col-12"
+                :info='album'
+            />
         </div>
+        <div v-else>Loading...</div>
+
     </section>
 </template>
 
@@ -26,14 +24,14 @@ export default {
     component: {
         Album,
     },
-    data () {
+    data() {
         return {
             apiUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
             albumList: [],
             loading: true,
         };
     },
-    created () {
+    created() {
         this.getAlbums();
     },
     methods: {
@@ -42,28 +40,27 @@ export default {
              * API Call
              */
             axios
-            .get(this.apiUrl)
-            .then((res) => {
-                console.log(res.data);
-                this.albumList = res.data;
-                this.loading = false;
-            })
-            .catch((err) => {
-                console.log('Error', err);
-            });
+                .get(this.apiUrl)
+                .then((res) => {
+                    console.log(res.data);
+                    this.albumList = res.data;
+                    this.loading = false;
+                })
+                .catch((err) => {
+                    console.log('Error', err);
+                });
         },
     },
-}
+};
 </script>
 
-
 <style lang="scss">
-    @import '../styles/vars';
-    @import '../styles/general';
+@import '../styles/vars';
+@import '../styles/general';
 
-    .album-list {
-        background: $bg-color;
-        color: $second-text-color;
-        padding: 120px 75px 30px
-    }
+.album-list {
+    background: $bg-color;
+    color: $second-text-color;
+    padding: 120px 75px 30px;
+}
 </style>
